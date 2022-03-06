@@ -20,9 +20,14 @@ function Navbar({title}) {
                     <Link to='/' className='btn btn-ghost btn-sm rounded-btn'>
                         Home
                     </Link>
-                    <Link to='/' className='btn btn-ghost btn-sm rounded-btn'>
-                    My Workouts
-                </Link>
+                    
+                    <Link to='/myworkouts' className='btn btn-ghost btn-sm rounded-btn'>
+                        My Workouts
+                    </Link>
+
+                    <Link to='/about' className='btn btn-ghost btn-sm rounded-btn'>
+                        About
+                    </Link>
                 </div>
             </div>
         </div>    
