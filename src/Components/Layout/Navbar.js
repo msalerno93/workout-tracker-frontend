@@ -6,7 +6,7 @@ function Navbar({title}) {
   return (
     <nav className='navbar mb-12 shadow-2xl bg-neutral text-neutral-content'>
         <div className="div container mx-auto">
-            <div className="div flex-none px-2 mx-2">
+            <div className="div flex-none px-2 mx-2 text-blue-300">
                 <Link to='/'>
                     <FaDumbbell className='inline pr-2 text-6xl'/>
                 </Link>
@@ -16,9 +16,13 @@ function Navbar({title}) {
                 </Link>
             </div>
             <div className="flex-1 px-2 mx-2">
-                <div className="flex justify-end">
+                <div className="flex justify-end text-blue-300">
                     <Link to='/' className='btn btn-ghost btn-sm rounded-btn'>
                         Home
+                    </Link>
+
+                    <Link to='/addworkout' className='btn btn-ghost btn-sm rounded-btn'>
+                        Add Workout
                     </Link>
                     
                     <Link to='/myworkouts' className='btn btn-ghost btn-sm rounded-btn'>
