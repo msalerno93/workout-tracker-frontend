@@ -19,7 +19,7 @@ function AddWorkoutForm() {
                 <label className='text-blue-300 font-bold'>
                         Workout Notes:
                         <textarea
-                        class="
+                        className="
                             form-control
                             block
                             w-full
@@ -34,7 +34,7 @@ function AddWorkoutForm() {
                             ease-in-out
                             m-0
                         "
-                        rows="3"
+                        rows="2"
                         cols='40'
                         placeholder="Notes about your entire Workout!!"
                         /> 
