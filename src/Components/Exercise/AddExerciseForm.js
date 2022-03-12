@@ -34,7 +34,7 @@ function AddExerciseForm() {
                 <label className='text-blue-300'>
                     Exercise Notes:
                     <textarea
-                    class="
+                    className="
                         form-control
                         block
                         w-full

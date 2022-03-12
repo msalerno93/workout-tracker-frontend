@@ -1,10 +1,10 @@
-import WorkoutFormCard from "../Components/Workout/WorkoutFormCard"
+import AddWorkoutFormCard from "../Components/Workout/AddWorkoutFormCard"
 
 function AddWorkoutPage() {
   return (
     <div>
       <div>
-        <WorkoutFormCard/>
+        <AddWorkoutFormCard/>
       </div>
     </div>
   )

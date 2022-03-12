@@ -1,11 +1,11 @@
 import AddExerciseCard from "../Components/Exercise/AddExerciseCard"
-import WorkoutShowCard from "../Components/Workout/WorkoutShowCard"
+import SingleWorkoutShowCard from "../Components/Workout/SingleWorkoutShowCard"
 
 function WorkoutShowPage() {
   return (
     <div>
       <div>
-        <WorkoutShowCard />
+        <SingleWorkoutShowCard />
       </div>
       <div>
         <AddExerciseCard />
