@@ -1,11 +1,11 @@
-function WorkoutResults({workouts}) {
+function WorkoutResults({workout}) {
 
     return (
         <div>
            <h1>These are Workouts API ALL WORKOUTS YOUVE DONE</h1>
-           {workouts.map((workout) =>{
-               return <div key={workout.id}>
-                   <h3>{workout.title}</h3>    
+           {workout.map((w) =>{
+               return <div key={w.id}>
+                   <h3>{w.exercise}</h3>    
                </div>
            })}
        </div>
