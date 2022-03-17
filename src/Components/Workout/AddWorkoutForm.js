@@ -1,24 +1,66 @@
+import {useState} from 'react'
 
-function AddWorkoutForm() {
-  return (
+function AddWorkoutForm({handleAdd}) {
+
+    const [title, setTitle] = useState('')
+
+    const handleTitleChange = (e) => {
+        setTitle(e.target.value);
+    }
+
+    const [date, setDate] = useState('')
+
+    const handleDateChange = (e) => {
+        setDate(e.target.value);
+    }
+
+    const [workoutNote, setWorkoutNote] = useState('')
+
+    const handleWorkoutNoteChange = (e) => {
+        setWorkoutNote(e.target.value);
+    }
+
+    const handleSubmit = (e) => {
+        e.preventDefault()
+        if (title.trim().length > 5) {
+            const newFeedback ={
+                title,
+                date,
+                workoutNote,
+            }
+
+        handleAdd(newFeedback)
+
+            setTitle('')
+            setDate('')
+            setWorkoutNote('')
+        } 
+    }
+
+    return (
     <div>
         <h1 className='font-bold text-blue-300 text-2xl pb-5 flex flex-col justify-center items-center '>Add Workout</h1>
-            <form>
+            <form onSubmit={handleSubmit}>
                 <div className='font-bold flex flex-col justify-center items-center '>
                     <label className='text-blue-300'>
                         Title:
-                        <input type="text" name="name" 
-                            className="pb-2 text-black font-bold flex flex-col justify-center items-center bg-gray-400" />
+                        <input onChange={handleTitleChange} 
+                            className="pb-2 text-black font-bold flex 
+                                flex-col justify-center items-center bg-gray-400"
+                            value={title}/>
                     </label>
                     <label className='text-blue-300'>
                         Date:
-                        <input type="text" name="name" 
-                            className="pb-2 text-black font-bold flex flex-col justify-center items-center bg-gray-400" />
+                        <input onChange={handleDateChange} type="text" 
+                            className="pb-2 text-black font-bold flex flex-col 
+                                justify-center items-center bg-gray-400" 
+                                value={date}
+                            />
                     </label>
                 </div>
                 <label className='text-blue-300 font-bold'>
                         Workout Notes:
-                        <textarea
+                        <textarea onChange={handleWorkoutNoteChange}
                         className="
                             form-control
                             block
@@ -34,9 +76,7 @@ function AddWorkoutForm() {
                             ease-in-out
                             m-0
                         "
-                        rows="2"
-                        cols='40'
-                        placeholder="Notes about your entire Workout!!"
+                        value={workoutNote}
                         /> 
                     </label>
                     <div className="flex flex-col justify-center items-center ">

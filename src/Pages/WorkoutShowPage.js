@@ -1,11 +1,11 @@
 import AddExerciseCard from "../Components/Exercise/AddExerciseCard"
 import SingleWorkoutShowCard from "../Components/Workout/SingleWorkoutShowCard"
 
-function WorkoutShowPage() {
+function WorkoutShowPage({match}) {
   return (
     <div>
       <div>
-        <SingleWorkoutShowCard />
+        <SingleWorkoutShowCard match={match} />
       </div>
       <div>
         <AddExerciseCard />
