@@ -1,9 +1,7 @@
-import AddWorkoutFormCard from "../Components/Workout/AddWorkoutFormCard"
-
 function Home() {
   return (
     <div>
-     <AddWorkoutFormCard />
+     Welcome to the Jungle
     </div>
   )
 }

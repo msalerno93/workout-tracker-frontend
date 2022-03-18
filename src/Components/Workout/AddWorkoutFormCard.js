@@ -1,9 +1,14 @@
 import AddWorkoutForm from "./AddWorkoutForm"
 
 function AddWorkoutFormCard() {
+
+  const addFeedback = (newFeedback) => {
+    console.log(newFeedback);
+  }
+
   return (
     <div>
-      <AddWorkoutForm />
+      <AddWorkoutForm handleAdd={addFeedback} />
     </div>
   )
 }
