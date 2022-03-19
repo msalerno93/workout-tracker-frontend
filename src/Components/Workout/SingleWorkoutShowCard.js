@@ -2,13 +2,11 @@ import { useState, useEffect } from 'react';
 import WorkoutResults from './WorkoutResults';
 
 
-function SingleWorkoutShowCard({match}) {
+function SingleWorkoutShowCard() {
 
-  const API_URL = `http://[::1]:3000/api/v1/workouts/${match.params.id}`;
+  const API_URL = `http://[::1]:3000/api/v1/workouts`;
 
   const [workout, setWorkout] = useState([])
-
-  console.log(match.params);
 
   useEffect(() => {
     fetch(API_URL)
