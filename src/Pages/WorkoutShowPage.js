@@ -1,4 +1,3 @@
-import { useParams } from "react-router-dom"
 import AddExerciseCard from "../Components/Exercise/AddExerciseCard"
 import SingleWorkoutShowCard from "../Components/Workout/SingleWorkoutShowCard"
 
