@@ -20,7 +20,7 @@ function App() {
             <Route path='/addworkout' element={<AddWorkoutPage />} />
             <Route path='/myworkouts' element={<MyWorkoutsPage />} />
             <Route path='/about' element={<AboutPage />} />
-            <Route path='/:id' element={<WorkoutShowPage />} />
+            <Route path='/workout/:id' element={<WorkoutShowPage />} />
             <Route path='/notfound' element={<NotFound />} />
             <Route path='/*' element={<NotFound />} />
         </Routes>
