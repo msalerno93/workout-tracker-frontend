@@ -1,27 +1,27 @@
-import { useState, useEffect } from 'react';
-import WorkoutResults from './WorkoutResults';
+// import { useState, useEffect } from 'react';
+// import WorkoutResults from './WorkoutResults';
 
 
-function SingleWorkoutShowCard() {
+// function SingleWorkoutShowCard() {
 
-  const API_URL = `http://[::1]:3000/api/v1/workouts`;
+//   const API_URL = `http://[::1]:3000/api/v1/workouts`;
 
-  const [workout, setWorkout] = useState([])
+//   const [workout, setWorkout] = useState([])
 
-  useEffect(() => {
-    fetch(API_URL)
-    .then(r => r.json())
-    .then(data => setWorkout(data))
-  }, [])
+//   useEffect(() => {
+//     fetch(API_URL)
+//     .then(r => r.json())
+//     .then(data => setWorkout(data))
+//   }, [])
 
-  return (
+//   return (
 
-    <div className="float">
-        <div className="float-left">
-                <WorkoutResults workout={workout}/>
-        </div>
-    </div>
-  )
-}
+//     <div className="float">
+//         <div className="float-left">
+//                 <WorkoutResults workout={workout}/>
+//         </div>
+//     </div>
+//   )
+// }
 
-export default SingleWorkoutShowCard
+// export default SingleWorkoutShowCard

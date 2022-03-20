@@ -2,11 +2,14 @@ import {useState} from 'react'
 
 function AddWorkoutForm({handleAdd}) {
 
+
     const [title, setTitle] = useState('')
 
     const handleTitleChange = (e) => {
         setTitle(e.target.value);
     }
+
+
 
     const [date, setDate] = useState('')
 
@@ -14,12 +17,16 @@ function AddWorkoutForm({handleAdd}) {
         setDate(e.target.value);
     }
 
+
+
     const [workoutNote, setWorkoutNote] = useState('')
 
     const handleWorkoutNoteChange = (e) => {
         setWorkoutNote(e.target.value);
     }
 
+
+    
     const handleSubmit = (e) => {
         e.preventDefault()
         if (title.trim().length > 5) {

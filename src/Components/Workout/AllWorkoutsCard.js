@@ -1,27 +1,20 @@
-import { useState, useEffect } from 'react';
 import SingleWorkoutResults from "./SingleWorkoutResults";
+import AddExerciseCard from "../Exercise/AddExerciseCard";
 
-function AllWorkoutsCard() {
-
-  const API_URL = "http://[::1]:3000/api/v1/workouts";
-
-  const [workout, setWorkout] = useState([])
-
-  useEffect(() => {
-    fetch(API_URL)
-    .then(r => r.json())
-    .then(data => setWorkout(data))
-  }, [])
-
-
+function AllWorkoutsCard({ allWorkout }) {
+  const allWorkouts = allWorkout;
 
   return (
     <div className="float-root">
-        <div className="float-center">
-        </div>
-        <SingleWorkoutResults workout={workout} />
+      <div className="float-left">
+        <SingleWorkoutResults allWorkouts={allWorkouts} />
+      </div>
+
+      <div className="float-right">
+        <AddExerciseCard />
+      </div>
     </div>
-  )
+  );
 }
 
-export default AllWorkoutsCard
+export default AllWorkoutsCard;

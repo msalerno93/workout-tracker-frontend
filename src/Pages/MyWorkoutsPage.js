@@ -1,10 +1,12 @@
 import AllWorkoutsCard from "../Components/Workout/AllWorkoutsCard"
 
-function MyWorkout() {
+function MyWorkout({workout}) {
+
+  const allWorkout = workout
 
   return (
     <div>
-      <AllWorkoutsCard />
+      <AllWorkoutsCard allWorkout={allWorkout}/>
     </div>
   )
 }
