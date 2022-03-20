@@ -1,5 +1,6 @@
 import { useState, useEffect } from "react";
 import { useParams } from "react-router-dom";
+import WorkoutResults from "./WorkoutResults";
 
 function SingleWorkoutShowCard() {
   const params = useParams();
@@ -14,13 +15,29 @@ function SingleWorkoutShowCard() {
       .then((json) => setSingleWorkout(json))
   }, [params]);
 
+
+  const deleteEntireWorkout = () => {
+    const API_URL = `http://[::1]:3000/api/v1/workouts/${params.id}`
+    fetch(API_URL, {method: "DELETE"
+    })
+  };
+
+  const deleteEntireExercise = () => {
+    const API_URL = `http://[::1]:3000/api/v1/workouts/${params.id}/exercises/${params.id}`
+    fetch(API_URL, {method: "DELETE"
+    })
+  };
+  
+
   return (
     <>
       {
         <div className="float">
           <div className="float-left">
             <div>
-              {params.id}
+              <WorkoutResults workout={singleWorkout} 
+              handleDelete={deleteEntireWorkout} 
+              exerciseDelete={deleteEntireExercise}/>
             </div>
           </div>
         </div>
