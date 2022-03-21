@@ -1,4 +1,5 @@
 import {Route, Routes} from 'react-router-dom'
+// import {connect} from 'react-redux'
 import Navbar from './Components/Layout/Navbar'
 import Footer from './Components/Layout/Footer'
 import HomePage from './Pages/HomePage'
@@ -31,3 +32,11 @@ function App() {
 }
 
 export default App
+
+// function mapStateToProps(state) {
+  // return object that will be merged with my props
+  
+// }
+
+// ^^ make export default connect(mapStateToProps)(App)
+// return value is a function - passing App in as argument

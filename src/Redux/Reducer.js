@@ -1,15 +1,15 @@
-function reducer(action, state){
-    switch (key) {
-        case value:
+// function reducer(action, state){
+//     // switch (key) {
+//     //     case value:
             
-            break;
+//     //         break;
     
-        default:
-            break;
-    }
+//     //     default:
+//     //         break;
+//     // }
 
-    //return state//
-    //arguments are action and states//
-}
+//     //return state//
+//     //arguments are action and states//
+// }
 
-export default reducer;
+// export default reducer;

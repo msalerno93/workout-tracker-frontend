@@ -34,6 +34,7 @@ function AddWorkoutForm({ handleAdd }) {
       setDate("");
       setWorkoutNote("");
     }
+    
   };
 
   return (
