@@ -8,6 +8,7 @@ import MyWorkoutsPage from './Pages/MyWorkoutsPage'
 import NotFound from './Pages/NotFoundPage'
 import AboutPage from './Pages/AboutPage'
 import WorkoutShowPage from './Pages/WorkoutShowPage'
+import EditExercisePage from './Pages/EditExercisePage'
 
 
 function App() {
@@ -22,6 +23,7 @@ function App() {
             <Route path='/myworkouts' element={<MyWorkoutsPage />} />
             <Route path='/about' element={<AboutPage />} />
             <Route path='/workout/:id' element={<WorkoutShowPage />} />
+            <Route path='/workout/:wid/exercise/:id' element={<EditExercisePage/>} />
             <Route path='/notfound' element={<NotFound />} />
             <Route path='/*' element={<NotFound />} />
         </Routes>
@@ -40,3 +42,6 @@ export default App
 
 // ^^ make export default connect(mapStateToProps)(App)
 // return value is a function - passing App in as argument
+
+
+// editEntireExercise={editEntireExercise}

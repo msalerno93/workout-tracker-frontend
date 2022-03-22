@@ -1,4 +1,6 @@
-function WorkoutResults({ workout, handleDelete, exerciseDelete }) {
+import {Link} from 'react-router-dom'
+
+function WorkoutResults({ workout, handleDelete, exerciseDelete, editExercise }) {
   
   if (workout.length === 0) return <h1> Loading </h1>;
   return (
@@ -21,12 +23,15 @@ function WorkoutResults({ workout, handleDelete, exerciseDelete }) {
                     Reps: <div className="pb-3">{e.reps}</div>
                     Sets: <div className="pb-3">{e.sets}</div>
                     Exercise Note: <div className="pb-8">{e.exercise_note}</div>
-                    <button onClick={exerciseDelete} className="btn btn-primary bg-red-500 border-black hover:bg-blue-600">
+                    <button onClick={() => exerciseDelete(e.id)} className="btn btn-primary bg-red-500 border-black hover:bg-blue-600">
                       Delete
                     </button>
+                    <Link to={`/workout/${workout.id}/exercise/${e.id}`}>
                     <button className="btn btn-black border-blue-300 text-white hover:bg-blue-600 mx-5">
                       Edit
                     </button>
+                    </Link>
+
                   </div>
                 </div>
               );
