@@ -1,5 +1,5 @@
 import {Route, Routes} from 'react-router-dom'
-// import {connect} from 'react-redux'
+import {useSelector} from 'react-redux'
 import Navbar from './Components/Layout/Navbar'
 import Footer from './Components/Layout/Footer'
 import HomePage from './Pages/HomePage'
@@ -12,6 +12,8 @@ import EditExercisePage from './Pages/EditExercisePage'
 
 
 function App() {
+
+  // const EXAMPLE = useSelector(state => state)
 
   return (
     <div className="flex flex-col justify-between h-screen">
@@ -34,14 +36,3 @@ function App() {
 }
 
 export default App
-
-// function mapStateToProps(state) {
-  // return object that will be merged with my props
-  
-// }
-
-// ^^ make export default connect(mapStateToProps)(App)
-// return value is a function - passing App in as argument
-
-
-// editEntireExercise={editEntireExercise}
