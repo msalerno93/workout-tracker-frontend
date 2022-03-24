@@ -19,7 +19,7 @@ function WorkoutResults({ workout, handleDelete, exerciseDelete, editExercise })
                   <div className="shadow-2xl w-50 h-30 pt-10 pb-5">
                     Exercise Name: <div className="pb-3">{e.name}</div>
                     Muscle Group: <div className="pb-3">{e.muscle_group}</div>
-                    Weight: <div className="pb-3">{e.weight}</div>
+                    Weight: <div className="pb-3">{e.weight} lbs</div>
                     Reps: <div className="pb-3">{e.reps}</div>
                     Sets: <div className="pb-3">{e.sets}</div>
                     Exercise Note: <div className="pb-8">{e.exercise_note}</div>

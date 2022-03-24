@@ -1,5 +1,5 @@
 import {Route, Routes} from 'react-router-dom'
-import {useSelector} from 'react-redux'
+// import {useSelector} from 'react-redux'
 import Navbar from './Components/Layout/Navbar'
 import Footer from './Components/Layout/Footer'
 import HomePage from './Pages/HomePage'
