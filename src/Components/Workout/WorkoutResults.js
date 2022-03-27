@@ -1,6 +1,6 @@
 import {Link} from 'react-router-dom'
 
-function WorkoutResults({ workout, handleDelete, exerciseDelete, editExercise }) {
+function WorkoutResults({ workout, handleDelete, exerciseDelete }) {
   
   if (workout.length === 0) return <h1> Loading </h1>;
   return (
