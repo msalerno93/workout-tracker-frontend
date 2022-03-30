@@ -1,25 +1,20 @@
-import { useState, useEffect } from "react";
+import {useSelector, useDispatch} from 'react-redux'
 import { useParams } from "react-router-dom";
 import WorkoutResults from "./WorkoutResults";
+import { deleteWorkout } from "../../Actions/WorkoutActions";
 
 function SingleWorkoutShowCard() {
   const params = useParams();
 
-  const [singleWorkout, setSingleWorkout] = useState([]);
+  const dispatch = useDispatch()
+  const singleWorkout = useSelector((state) => {
+    return state.find(workout => workout.id === params.id)
+  })
 
-  useEffect(() => {
-    const API_URL = `http://[::1]:3000/api/v1/workouts/${params.id}`
-
-    fetch(API_URL)
-      .then((r) => r.json())
-      .then((json) => setSingleWorkout(json))
-  }, [params]);
-
+  // if (typeof(workout) == "undefined") return <h1> Loading </h1>
 
   const deleteEntireWorkout = () => {
-    const API_URL = `http://[::1]:3000/api/v1/workouts/${params.id}`
-    fetch(API_URL, {method: "DELETE"
-    })
+    dispatch(deleteWorkout(singleWorkout.id))
   };
 
   const deleteEntireExercise = (exerciseId) => {

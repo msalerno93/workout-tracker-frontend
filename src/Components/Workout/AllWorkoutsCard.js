@@ -1,19 +1,19 @@
-import { useState, useEffect } from 'react';
+import { useEffect } from 'react';
+import {useSelector, useDispatch} from 'react-redux'
+import { getWorkouts } from '../../Actions/WorkoutActions';
 import SingleWorkoutResults from "./SingleWorkoutResults";
 
 function AllWorkoutsCard() {
 
-  const API_URL = "http://[::1]:3000/api/v1/workouts";
-
-  const [workout, setWorkout] = useState([])
-
+  const dispatch = useDispatch()
+  const workout = useSelector((state) => {
+    return state
+  })
   useEffect(() => {
-    fetch(API_URL)
-    .then(r => r.json())
-    .then(data => setWorkout(data))
-  }, [])
+    dispatch(getWorkouts())
+  })
 
-
+  if (typeof(workout) == "undefined") return <h1> Loading </h1>
 
   return (
     <div className="float-root">

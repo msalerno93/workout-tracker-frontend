@@ -2,18 +2,24 @@ import React from 'react';
 import ReactDOM from 'react-dom';
 import './index.css'
 import App from './App';
+import WorkoutReducer from '../src/Redux/Reducers/WorkoutReducer'
 import {BrowserRouter as Router} from 'react-router-dom'
-// import { Provider } from 'react-redux'
-// import Store from './Redux/Store'
+import { Provider } from 'react-redux'
+import thunk from 'redux-thunk';
+import { createStore, applyMiddleware} from 'redux';
+
+
+const store = createStore(WorkoutReducer, applyMiddleware(thunk))
 
 
 ReactDOM.render(
-  <React.StrictMode>
-      {/* <Provider Store={Store}> */}
+  <Provider store={store}>
+    <React.StrictMode>
         <Router>
           <App />
         </Router>
-      {/* </Provider> */}
-  </React.StrictMode>,
+    </React.StrictMode>
+  </Provider>,
+
   document.getElementById('root')
 );
