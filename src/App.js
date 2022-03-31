@@ -1,4 +1,5 @@
 import {Route, Routes} from 'react-router-dom'
+import {useSelector, useDispatch} from 'react-redux'
 import Navbar from './Components/Layout/Navbar'
 import Footer from './Components/Layout/Footer'
 import HomePage from './Pages/HomePage'
@@ -11,6 +12,8 @@ import EditExercisePage from './Pages/EditExercisePage'
 
 
 function App() {
+
+  // const state = useSelector((state) => state)
 
   return (
     <div className="flex flex-col justify-between h-screen">

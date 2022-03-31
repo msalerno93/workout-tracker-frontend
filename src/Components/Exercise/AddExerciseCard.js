@@ -1,21 +1,14 @@
 import { useParams } from "react-router-dom";
 import AddExerciseForm from "./AddExerciseForm";
+import { addExercise } from "../../Actions/WorkoutActions";
+import { useDispatch} from 'react-redux'
 
 function AddExercise() {
   const params = useParams();
+  const dispatch = useDispatch()
 
   const singleExercise = (newExercise) => {
-    const API_URL = `http://[::1]:3000/api/v1/workouts/${params.id}/exercises`;
-    fetch(API_URL, {
-      method: "POST",
-      headers: {
-        Accept: "application/json",
-        "Content-Type": "application/json;charset=UTF-8",
-      },
-      body: JSON.stringify(newExercise),
-    })
-      .then((r) => r.json())
-      .then((json) => console.log(json));
+    dispatch(addExercise(newExercise, params.id))
   };
 
   return (

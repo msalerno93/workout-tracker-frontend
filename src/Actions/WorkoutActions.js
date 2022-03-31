@@ -9,7 +9,7 @@ export function getWorkouts() {
         })
     }
 }
-
+ 
 export function deleteWorkout(id) {
     return (dispatch) => {
         fetch(`${Base_API}/${id}`, {method: "DELETE"})
@@ -30,51 +30,36 @@ export function editEntireExercise(formData, wid, eid) {
         },
         body: JSON.stringify(formData),
         })
-        .then((r) => r.json)
+        .then((r) => r.json())
         .then((e) => {
             dispatch({type: "EDIT_EXERCISE", payload: wid, e: e})
         })
     }
 }
 
+export function deleteEntireExercise(wid,eid) {
+    return (dispatch) => {
+        fetch(`${Base_API}/${wid}/exercises/${eid}`, {method: "DELETE"})
+        .then(() => {
+            dispatch ({type: "DELETE_EXERCISE", wid, eid})
 
-//   const deleteEntireExercise = (exerciseId) => {
-//     const API_URL = `http://[::1]:3000/api/v1/workouts/${params.id}/exercises/${exerciseId}`
-//     fetch(API_URL, {method: "DELETE"
-//     })
-//   };
+        })
+    }
+}
 
-//   useEffect(() => {
-//     fetch(API_URL)
-//     .then(r => r.json())
-//     .then(data => setWorkout(data))
-//   }, [])
-
-
-//   const API_URL = `http://[::1]:3000/api/v1/workouts`;
-//     fetch(API_URL, {
-//       method: "POST",
-//       headers: {
-//         Accept: "application/json",
-//         "Content-Type": "application/json;charset=UTF-8",
-//       },
-//       body: JSON.stringify(newWorkout),
-//     })
-//       .then((r) => r.json())
-//       .then((json) => console.log(json));
-
-
-//       const singleExercise = (newExercise) => {
-//         const API_URL = `http://[::1]:3000/api/v1/workouts/${params.id}/exercises`;
-//         fetch(API_URL, {
-//           method: "POST",
-//           headers: {
-//             Accept: "application/json",
-//             "Content-Type": "application/json;charset=UTF-8",
-//           },
-//           body: JSON.stringify(newExercise),
-//         })
-//           .then((r) => r.json())
-//           .then((json) => console.log(json));
-//       };
-    
+export function addExercise(form, wid) {
+    return (dispatch) => {
+        fetch(`${Base_API}/${wid}/exercises`, {
+            method: "POST",
+            headers: {
+            Accept: "application/json",
+            "Content-Type": "application/json;charset=UTF-8",
+            },
+            body: JSON.stringify(form),
+        })
+        .then((r) => r.json())
+        .then((e) => {
+            dispatch({type: "EDIT_EXERCISE", payload: wid, e})
+        })
+    }
+}

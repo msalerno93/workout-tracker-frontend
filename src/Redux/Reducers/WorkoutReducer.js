@@ -7,23 +7,29 @@ const WorkoutReducer = (state = [], action) => {
             return [ ...action.payload]
         case "DELETE_WORKOUT":
             return [
-                ...state.filter(workout => workout.id !== action )
+                ...state.filter(workout => workout.id != action )
             ]
         case "EDIT_EXERCISE":
-            index = state.findIndex(w => w.id === action.id) //finds workout yano? //
+            index = state.findIndex(w => w.id == action.payload) //finds workout yano? //
             workout = state[index]
-            exercise = workout.exercises.findIndex(e => e.id === action.e.id)
-            workout.exercises = [...workout.exercises.slice(0, exercise), {...action.e}, ...workout.exercise.slice(exercise + 1)]
+            exercise = workout.exercises.findIndex(e => e.id == action.e.id)
+            workout.exercises = [...workout.exercises.slice(0, exercise), {...action.e}, ...workout.exercises.slice(exercise + 1)]
             return [...state.slice(0, index), {...workout}, ...state.slice(index + 1)]
 
         case "ADD_EXERCISE":
-            return []
+            index = state.findIndex(w => w.id == action.payload) 
+            workout = state[index]
+            workout.exercises.push(action.payload)
+            return [...state.slice(0, index), {...workout}, ...state.slice(index + 1)]
 
         case "DELETE_EXERCISE":
-            return []
+            index = state.findIndex(w => w.id == action.wid) 
+            workout = state[index]
+            workout.exercises.filter(ex => ex.id != action.eid)
+            return [...state.slice(0, index), {...workout}, ...state.slice(index + 1)]
     
         default:
-            break;
+            return state;
     }
 }
 

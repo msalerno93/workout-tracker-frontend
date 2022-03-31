@@ -1,6 +1,7 @@
 import { useState } from "react";
 
 function EditExerciseForm({exercise, editEntireExercise}) {
+
   const [name, setName] = useState(exercise.name);
 
   const handleNameChange = (e) => {

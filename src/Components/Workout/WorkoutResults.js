@@ -1,11 +1,12 @@
 import {Link} from 'react-router-dom'
 
+
 function WorkoutResults({ workout, handleDelete, exerciseDelete }) {
-  
-  if (workout.length === 0) return <h1> Loading </h1>;
+
+  if (typeof(workout) == "undefined") return <h1> Loading </h1>
   return (
     <div>
-      <div key={workout.id}>
+      <div>
         <div className="font-bold text-blue-300 text-2xl">{workout.title}</div>
         <div className="font-bold text-blue-300 text-m">{workout.date}</div>
         <div className="font-bold text-blue-300 text-m">
@@ -13,9 +14,9 @@ function WorkoutResults({ workout, handleDelete, exerciseDelete }) {
         </div>
         <div className="grid-rows-2 grid-template-rows: repeat(2, minmax(0, 1fr));">
           <h5>
-            {workout.exercises.map((e) => {
+            {workout.exercises.map((e, id) => {
               return (
-                <div key={e.id}>
+                <div key={id}>
                   <div className="shadow-2xl w-50 h-30 pt-10 pb-5">
                     Exercise Name: <div className="pb-3">{e.name}</div>
                     Muscle Group: <div className="pb-3">{e.muscle_group}</div>

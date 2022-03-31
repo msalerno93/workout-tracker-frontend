@@ -1,37 +1,40 @@
 import EditExerciseForm from "../Components/Exercise/EditExerciseForm";
 import { useParams } from "react-router-dom";
-import { useState, useEffect } from "react";
+import { useEffect } from "react";
+import {useSelector, useDispatch} from 'react-redux'
+import { editEntireExercise, getWorkouts } from "../Actions/WorkoutActions";
 
 function EditExercisePage() {
   const params = useParams();
 
-  const API_URL = `http://[::1]:3000/api/v1/workouts/${params.wid}/exercises/${params.id}`;
+  const dispatch = useDispatch();
 
-  const [exercise, setExercise] = useState([]);
+  const exercise = useSelector( state => {
+    console.log(params)
+    if (typeof(state) !== 'undefined') {
+      let workout = state.find(workout => workout.id == params.wid)
+      return workout.exercises.find(ex => ex.id == params.id)
+    }
+  })
 
+  // const API_URL = `http://[::1]:3000/api/v1/workouts/${params.wid}/exercises/${params.id}`;
+  
   useEffect(() => {
-    fetch(API_URL)
-      .then((r) => r.json())
-      .then((data) => setExercise(data));
+    dispatch(getWorkouts())
   }, []);
 
-  const editEntireExercise = (formData) => {
-    const API_URL = `http://[::1]:3000/api/v1/workouts/${params.wid}/exercises/${params.id}`;
-    fetch(API_URL, {
-      method: "PATCH",
-      headers: {
-        Accept: "application/json",
-        "Content-Type": "application/json;charset=UTF-8",
-      },
-      body: JSON.stringify(formData),
-    });
-  };
+  const editExercise = (formData) => {
+    console.log('i love big titties')
+    dispatch(editEntireExercise(formData, params.wid, params.id))
+  }
+
+  if (typeof(exercise) === "undefined") return <h1> Loading </h1>
 
   return (
     <div>
       <div>
         <EditExerciseForm
-          editEntireExercise={editEntireExercise}
+          editEntireExercise={editExercise}
           exercise={exercise}
         />
       </div>
