@@ -1,7 +1,9 @@
 import { useState } from "react";
+import {useNavigate} from "react-router"
 
 function AddWorkoutForm({ handleAdd }) {
   const [title, setTitle] = useState("");
+  const navigate = useNavigate()  
 
   const handleTitleChange = (e) => {
     setTitle(e.target.value);
@@ -33,8 +35,10 @@ function AddWorkoutForm({ handleAdd }) {
       setTitle("");
       setDate("");
       setWorkoutNote("");
+
+      
+      navigate('/myworkouts')
     }
-    
   };
 
   return (

@@ -6,9 +6,8 @@ import SingleWorkoutResults from "./SingleWorkoutResults";
 function AllWorkoutsCard() {
 
   const dispatch = useDispatch()
-  const workout = useSelector((state) => {
-    return state
-  })
+  const workout = useSelector((state) => state)
+
   useEffect(() => {
     dispatch(getWorkouts())
   })

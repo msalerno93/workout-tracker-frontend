@@ -1,8 +1,14 @@
 import { useState } from "react";
+import {useNavigate} from "react-router"
+import { useParams } from "react-router-dom";
 
 function EditExerciseForm({exercise, editEntireExercise}) {
 
   const [name, setName] = useState(exercise.name);
+
+  const navigate = useNavigate()
+
+  const params = useParams()
 
   const handleNameChange = (e) => {
     setName(e.target.value);
@@ -58,6 +64,7 @@ function EditExerciseForm({exercise, editEntireExercise}) {
       setReps("");
       setWeight("");
       setExerciseNote("");
+      navigate(`/workout/${params.wid}`)
     }
   };
 

@@ -24,7 +24,6 @@ function EditExercisePage() {
   }, []);
 
   const editExercise = (formData) => {
-    console.log('i love big titties')
     dispatch(editEntireExercise(formData, params.wid, params.id))
   }
 

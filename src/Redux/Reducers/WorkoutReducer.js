@@ -2,6 +2,7 @@ const WorkoutReducer = (state = [], action) => {
     let index
     let exercise
     let workout
+    let deleted
     switch (action.type) {
         case "ALL_WORKOUTS":
             return [ ...action.payload]
@@ -9,6 +10,9 @@ const WorkoutReducer = (state = [], action) => {
             return [
                 ...state.filter(workout => workout.id != action )
             ]
+        case "ADD_WORKOUT":
+            return [...state, action.workout]
+
         case "EDIT_EXERCISE":
             index = state.findIndex(w => w.id == action.payload) //finds workout yano? //
             workout = state[index]
@@ -25,7 +29,8 @@ const WorkoutReducer = (state = [], action) => {
         case "DELETE_EXERCISE":
             index = state.findIndex(w => w.id == action.wid) 
             workout = state[index]
-            workout.exercises.filter(ex => ex.id != action.eid)
+            deleted = workout.exercises.filter(ex => ex.id !== action.eid)
+            workout.exercises = deleted
             return [...state.slice(0, index), {...workout}, ...state.slice(index + 1)]
     
         default:

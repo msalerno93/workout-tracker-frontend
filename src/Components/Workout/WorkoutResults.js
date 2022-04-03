@@ -1,7 +1,15 @@
 import {Link} from 'react-router-dom'
+import {useNavigate} from 'react-router'
 
 
-function WorkoutResults({ workout, handleDelete, exerciseDelete }) {
+function WorkoutResults({ workout, deleteEntireWorkout, exerciseDelete }) {
+
+  const navigate = useNavigate()
+
+  const handleDelete = (id) => {
+    deleteEntireWorkout(id)
+    navigate('/myworkouts')
+  }
 
   if (typeof(workout) == "undefined") return <h1> Loading </h1>
   return (
@@ -40,7 +48,7 @@ function WorkoutResults({ workout, handleDelete, exerciseDelete }) {
           </h5>
         </div>
       </div>
-      <button onClick={handleDelete} className="btn btn-primary btn-lg bg-red-900 border-black hover:bg-blue-600">
+      <button onClick={() => handleDelete(workout.id)} className="btn btn-primary btn-lg bg-red-900 border-black hover:bg-blue-600">
         Delete Entire Workout
       </button>
     </div>

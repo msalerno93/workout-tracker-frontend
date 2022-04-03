@@ -9,7 +9,7 @@ function SingleWorkoutShowCard() {
 
   const dispatch = useDispatch()
   const singleWorkout = useSelector((state) => {
-    console.log("first test",state)
+    
     // if (typeof(state) !== "undefined") {
       return state.find(workout => workout.id == params.id)
     // }
@@ -20,8 +20,8 @@ function SingleWorkoutShowCard() {
     dispatch(getWorkouts())
   }, []);
 
-  const deleteEntireWorkout = () => {
-    dispatch(deleteWorkout(singleWorkout.id))
+  const deleteEntireWorkout = (workouts) => {
+    dispatch(deleteWorkout(workouts))
   };
 
   const deleteExercise = (exerciseId) => {
@@ -38,7 +38,7 @@ function SingleWorkoutShowCard() {
           <div className="float-left">
             <div>
               <WorkoutResults workout={singleWorkout} 
-              handleDelete={deleteEntireWorkout} 
+              deleteEntireWorkout={deleteEntireWorkout} 
               exerciseDelete={deleteExercise}
               />
             </div>

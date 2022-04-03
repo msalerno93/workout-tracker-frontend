@@ -1,6 +1,8 @@
 import {Link} from 'react-router-dom'
 
 function SingleWorkoutResults({workout}) {
+
+    if (workout.length === 0) return <h1>You have no Workouts!</h1>
     return (
         <div className='container max-width: 640px'>
            {workout.map((w) =>{

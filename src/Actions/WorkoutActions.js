@@ -63,3 +63,21 @@ export function addExercise(form, wid) {
         })
     }
 }
+
+export function addWorkout(newWorkout) {
+    return (dispatch) => {
+      fetch(Base_API, {
+        method: "POST",
+        headers: {
+          Accept: "application/json",
+          "Content-Type": "application/json;charset=UTF-8",
+        },
+        body: JSON.stringify(newWorkout),
+      })
+        .then((r) => r.json())
+        .then((workout) => {
+            console.log(workout)
+            dispatch({type: "ADD_WORKOUT", workout})
+        });
+    }
+}
