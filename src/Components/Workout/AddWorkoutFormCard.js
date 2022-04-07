@@ -7,7 +7,6 @@ function AddWorkoutFormCard() {
   const dispatch = useDispatch()
 
   const test = (test) => {
-    console.log('hitting')
     dispatch(addWorkout(test))
   }
   return (

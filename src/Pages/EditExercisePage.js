@@ -10,7 +10,6 @@ function EditExercisePage() {
   const dispatch = useDispatch();
 
   const exercise = useSelector( state => {
-    console.log(params)
     if (typeof(state) !== 'undefined') {
       let workout = state.find(workout => workout.id == params.wid)
       return workout.exercises.find(ex => ex.id == params.id)
